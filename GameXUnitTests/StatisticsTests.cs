@@ -14,7 +14,7 @@ namespace GameXUnitTests
         public void RockIsTopMove()
         {
             //Arange
-            Statistics.Reset();
+            Game.StartGame();
 
             //Act
             Statistics.CountMoves(Move.Rock, Move.Rock);
@@ -28,7 +28,7 @@ namespace GameXUnitTests
         public void SpockIsTopMove()
         {
             //Arange
-            Statistics.Reset();
+            Game.StartGame();
 
             //Act
             Statistics.CountMoves(Move.Spock, Move.Spock);
@@ -42,7 +42,7 @@ namespace GameXUnitTests
         public void TopMoveComesInAplphabeticOrder()
         {
             //Arange
-            Statistics.Reset();
+            Game.StartGame();
 
             //Act
             Statistics.CountMoves(Move.Spock, Move.Spock);
@@ -55,10 +55,10 @@ namespace GameXUnitTests
         public void ComputerIsWinner()
         {
             //Arange
-            Statistics.Reset();
+            Game.StartGame();
             //Act
-            Statistics.ComputerScore += 2;
-            Statistics.PlayerScore++;
+            Statistics.ComputerScore = 2;
+            Statistics.PlayerScore = 1;
             //Assert
             Assert.Equal("Computer", Statistics.ReturnWinner());
         }
@@ -66,13 +66,10 @@ namespace GameXUnitTests
         public void PlayerIsWinner()
         {
             //Arange
-            //For this particular case I needed to use start game 
-            //So that GameMaster.GetMoves would run. Otherwise getting NullReference Error.
-            //Dont know why other tests didnt say anything.
             Game.StartGame();
             //Act
-            Statistics.ComputerScore++;
-            Statistics.PlayerScore += 2;
+            Statistics.ComputerScore =1;
+            Statistics.PlayerScore = 2;
             //Assert
             Assert.Equal("You", Statistics.ReturnWinner());
         }
@@ -80,10 +77,10 @@ namespace GameXUnitTests
         public void WhoIsWinnerWhenBoth()
         {
             //Arange
-            Statistics.Reset();
+            Game.StartGame();
             //Act
-            Statistics.ComputerScore += 2;
-            Statistics.PlayerScore += 2;
+            Statistics.ComputerScore = 2;
+            Statistics.PlayerScore = 2;
             //Assert
             Assert.Equal("You", Statistics.ReturnWinner());
             //Returns Than PLayer is winner
@@ -93,12 +90,13 @@ namespace GameXUnitTests
         public void WhatHappensWhenPlayerDoesntHaveScore()
         {
             //Arange
-            Statistics.Reset();
+            Game.StartGame();
             //Act
-            Statistics.ComputerScore += 2;
+            Statistics.ComputerScore = 2;
             //Assert
             Assert.Equal("Computer", Statistics.ReturnWinner());
             //Computer still wins
         }
+
     }
 }

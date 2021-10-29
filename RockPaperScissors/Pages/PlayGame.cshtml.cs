@@ -21,6 +21,7 @@ namespace RockPaperScissors.Pages
         public IActionResult OnPostMove(Move playerMove)
         {
             Game.Player.Move = playerMove;
+            Game.Computer.MakeMove();
             Game.PlayTurn();
             WhoScoreMessage = Game.WhoScores;
 

@@ -25,7 +25,6 @@ namespace RockPaperScissors.Classes
         
         public static void PlayTurn()
         {
-            Computer.MakeMove();
             if (Player.Move == Computer.Move)
             {
                 WhoScores = "Its a tie!";
