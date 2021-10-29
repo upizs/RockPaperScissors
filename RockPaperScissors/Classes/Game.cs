@@ -12,7 +12,6 @@ namespace RockPaperScissors.Classes
         public static Cumputer Computer { get; set; }
 
         public static string WhoScores { get; private set; }
-
         public static void StartGame()
         {
             Player = new Player();
