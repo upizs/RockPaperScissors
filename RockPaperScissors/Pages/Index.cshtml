@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Paper Rock Scissors";
+}
+<div class="text-center">
+    <p>
+        "Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes scissors, scissors decapitate lizard, lizard eats paper, paper disproves Spock, Spock vaporizes rock. And as it always has, rock crushes scissors."
+
+        -- Dr. Sheldon Cooper
+    </p>
+    <form method="post">
+        <span asp-validation-for="UserInput.ScoreToWin" class="text-danger"></span>
+        <div class="form-group ">
+            <label asp-for="UserInput.ScoreToWin"></label>
+            <input type="number" asp-for="UserInput.ScoreToWin" />
+        </div>
+        <input type="submit" value="Start" class="btn btn-dark">
+    </form>
+</div>
+   
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}
+

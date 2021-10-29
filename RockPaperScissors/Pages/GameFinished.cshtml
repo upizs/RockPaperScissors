@@ -1,0 +1,15 @@
+﻿@page
+@model RockPaperScissors.Pages.GameFinishedModel
+@{
+}
+
+<div class="text-center">
+    <h3>@Model.GameStatistics.Winner Win!</h3>
+    <p>Your score : @Model.GameStatistics.PlayerScore</p>
+    <p>Computer score : @Model.GameStatistics.ComputerScore</p>
+    <p>Most used move : @Model.GameStatistics.MostUsedMove</p>
+    <p>Turns : @Model.GameStatistics.Turns</p>
+
+    <a asp-page="/Index" class="btn btn-dark">Play Again?</a>
+</div>
+
